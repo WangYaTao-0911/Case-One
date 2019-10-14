@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yt.dao.GoodsMapper">
+
+     
+     <select id="selects" resultType="Goods">
+       select * from w_goods
+       <if test="p1!null and p1!=''">
+         price >=#{p1}
+       </if>
+       <价格 
+     </select>
+     
+</mapper>

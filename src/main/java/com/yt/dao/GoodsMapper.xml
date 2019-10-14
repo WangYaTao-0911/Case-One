@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yt.dao.GoodsMapper">
+
+     
+     <select id="selects" resultType="GoodsVO">
+       select * from w_goods
+       <where>
+       <if test="p1!null and p1!=''">
+         price>=#{p1}
+       </if>
+       <!--价格小于  -->
+       <if test="p2!=null and p2!=''">
+        and price &lt;=#{p2}
+       </if> 
+       <!-- 百分比大于等于 -->
+       <if test="t1!=null and t1!=0.0">
+         and percent>=#{t1}
+       </if>
+       <!-- 百分比小于等于 -->
+        <if test="t2!=null and t2!=0.0">
+          and percent &lt;=#{t2}
+        </if>
+        </where>
+         <!--   排序  
+          <if test="ass!=null and ass!=''">
+            order by ${ass} ${dess}
+          </if> -->
+     </select>
+     
+</mapper>
